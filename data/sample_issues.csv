@@ -1,0 +1,26 @@
+id,title,category,area,latitude,longitude,status,date_reported,priority,description
+1,Hueco en la vía principal,Vías,El Poblado,6.2099,-75.5663,Abierto,2026-01-15,alta,Gran hueco en la calle 10 que daña vehículos
+2,Luminaria apagada,Alumbrado,Laureles,6.2421,-75.5978,En Proceso,2026-01-20,media,Poste de luz sin funcionar en la carrera 76
+3,Acumulación de basura,Basuras,Belén,6.2195,-75.6081,Abierto,2026-02-01,alta,Basura sin recoger hace 3 días en la esquina
+4,Tubería rota,Agua,El Centro,6.2469,-75.5638,En Proceso,2026-01-28,alta,Fuga de agua en la avenida La Playa
+5,Parque abandonado,Espacios Verdes,Envigado,6.1712,-75.5895,Abierto,2026-02-05,media,Parque sin mantenimiento ni iluminación
+6,Andén deteriorado,Infraestructura,Sabaneta,6.1521,-75.6175,Resuelto,2025-12-10,baja,Andén roto en la calle 77 sur
+7,Semáforo dañado,Infraestructura,Itagüí,6.1751,-75.5975,Abierto,2026-02-10,alta,Semáforo sin funcionar genera accidentes
+8,Grafiti en edificio público,Seguridad,Castilla,6.2899,-75.5868,Resuelto,2025-11-20,baja,Grafitis en la fachada de la biblioteca
+9,Cables eléctricos colgando,Seguridad,Aranjuez,6.2741,-75.5639,Abierto,2026-02-08,alta,Cables en peligro sobre la calle 94
+10,Zanja sin señalizar,Vías,Robledo,6.2731,-75.6118,En Proceso,2026-01-30,alta,Zanja abierta sin cono ni señal en la vía
+11,Contenedor de basura lleno,Basuras,El Poblado,6.2075,-75.5659,Resuelto,2026-01-10,baja,Contenedor desbordado en el parque El Poblado
+12,Parque sin luz,Alumbrado,Laureles,6.2395,-75.5961,Abierto,2026-02-12,media,Zona oscura en el parque Laureles por la noche
+13,Canal obstruido,Agua,Belén,6.2201,-75.6069,En Proceso,2026-02-03,media,Canal de agua bloqueado por basura
+14,Vía sin señalización,Vías,El Centro,6.2483,-75.5651,Abierto,2026-02-14,media,Calle sin demarcación vial ni señales de tránsito
+15,Árbol caído,Infraestructura,Envigado,6.1698,-75.5908,Resuelto,2026-01-25,alta,Árbol caído bloquea la vía principal
+16,Basurero clandestino,Basuras,Sabaneta,6.1509,-75.6188,Abierto,2026-02-06,alta,Zona usada como basurero informal cerca a la quebrada
+17,Alumbrado intermitente,Alumbrado,Itagüí,6.1758,-75.5968,En Proceso,2026-02-01,media,Farolas parpadeando en la avenida Guayabal
+18,Muro de contención dañado,Infraestructura,Castilla,6.2912,-75.5877,Abierto,2026-02-09,alta,Muro a punto de derrumbarse en la ladera
+19,Escalera pública rota,Infraestructura,Aranjuez,6.2728,-75.5648,Resuelto,2026-01-18,media,Escaleras del barrio con peldaños sueltos
+20,Invasión del espacio público,Seguridad,Robledo,6.2719,-75.6109,En Proceso,2026-02-07,baja,Ventas informales bloquean el andén
+21,Pozo de agua estancada,Agua,El Poblado,6.2092,-75.5672,Abierto,2026-02-15,alta,Charco permanente que genera mosquitos
+22,Cancha deportiva destruida,Espacios Verdes,Laureles,6.2388,-75.5972,En Proceso,2026-02-11,media,Cancha con tablero roto y piso dañado
+23,Hueco frente al colegio,Vías,Belén,6.2188,-75.6088,Abierto,2026-02-13,alta,Hueco peligroso frente a institución educativa
+24,Fuga en hidrante,Agua,El Centro,6.2471,-75.5629,En Proceso,2026-02-04,alta,Hidrante con fuga constante de agua potable
+25,Zonas verdes sin mantenimiento,Espacios Verdes,Castilla,6.2891,-75.5861,Abierto,2026-02-16,baja,Pasto alto y maleza en el parque del barrio
