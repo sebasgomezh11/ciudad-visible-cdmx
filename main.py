@@ -2,8 +2,8 @@ import streamlit as st
 import pandas as pd
 from streamlit_folium import st_folium
 
-from utils.data_loader import load_data, clean_data
-from utils.map_builder import build_map, CATEGORY_COLORS
+from core.data import load_data, clean_data
+from app.components.map_widget import build_map, CATEGORY_COLORS
 
 # ── Page configuration ────────────────────────────────────────────────────────
 st.set_page_config(

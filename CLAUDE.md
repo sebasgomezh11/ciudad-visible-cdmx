@@ -31,20 +31,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 pip install -r requirements.txt
 
 # Start the app — opens http://localhost:8501
-streamlit run app.py
+streamlit run main.py
 ```
 
 Always run from the repo root. `load_data` uses a relative path (`data/sample_issues.csv`) that resolves from wherever `streamlit run` is invoked.
 
 ## Architecture
 
-The app has three layers that execute in order on every Streamlit rerun:
+Two active layers (see `stack.md` for the full target architecture):
 
-1. **Data** (`utils/data_loader.py`) — `load_data()` reads the CSV; `clean_data()` normalizes it. Text columns (`category`, `area`, `status`) are title-cased so filter comparisons always match. `priority` is lowercased. Rows missing lat/lon are dropped. The result is cached via `@st.cache_data` in `app.py`.
+1. **Business logic** (`core/`) — `core/data.py` has `load_data()` and `clean_data()`. Text columns (`category`, `area`, `status`) are title-cased so filter comparisons always match. `priority` is lowercased. Rows missing lat/lon are dropped. Result is cached via `@st.cache_data` in `main.py`. New logic (analytics, AI) goes here — never in `app/`.
 
-2. **Filtering** (`app.py`) — Four sidebar widgets (category, area, status, priority) reduce the cached DataFrame into a `filtered` subset. All downstream rendering works on `filtered`, never the raw `df`.
-
-3. **Rendering** (`utils/map_builder.py` + `app.py`) — `build_map(filtered)` iterates the filtered DataFrame and adds a `folium.CircleMarker` per row, colored by `CATEGORY_COLORS`. The map is embedded via `st_folium(..., returned_objects=[])` — the empty list is intentional and prevents Streamlit from re-rendering on map clicks.
+2. **UI** (`main.py` + `app/components/`) — `main.py` handles filters and layout. `app/components/map_widget.py` owns `build_map()` and `CATEGORY_COLORS`. The map is embedded via `st_folium(..., returned_objects=[])` — the empty list prevents rerenders on map clicks.
 
 ## Data schema
 
@@ -54,13 +52,14 @@ The app has three layers that execute in order on every Streamlit rerun:
 - `status` values: `Abierto`, `En Proceso`, `Resuelto`
 - `priority` values (lowercase): `alta`, `media`, `baja`
 
-When adding a new category, also add its color to `CATEGORY_COLORS` in `utils/map_builder.py` — otherwise its markers render gray and it won't appear in the sidebar legend.
+When adding a new category, also add its color to `CATEGORY_COLORS` in `app/components/map_widget.py` — otherwise its markers render gray and it won't appear in the sidebar legend.
 
 ## Key constraints
 
 - **`@st.cache_data`** — `get_data()` is only called once per session. If you change the CSV or cleaning logic during development, call `st.cache_data.clear()` or restart the server.
 - **`returned_objects=[]`** on `st_folium` — do not remove this; it suppresses unnecessary reruns triggered by map interaction events.
-- **Title-case normalization** — filter comparisons in `app.py` (`== "Abierto"`, `== "En Proceso"`) depend on `clean_data()` having title-cased the `status` column. Keep them consistent.
+- **Title-case normalization** — filter comparisons in `main.py` (`== "Abierto"`, `== "En Proceso"`) depend on `clean_data()` having title-cased the `status` column. Keep them consistent.
+- **Layer rule** — business logic belongs in `core/`, UI in `app/`. `main.py` only wires them together. Never import Streamlit inside `core/`.
 
 ## How we work
 
